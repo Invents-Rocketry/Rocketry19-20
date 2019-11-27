@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 # -----------------Find the similar cutout of both images and merge it at that point.----------------------------
 
 
-test1File = 'bike1.jpg'
+test1File = 'd:/rocketry/Rocketry_2019-2020/Panorama_Merge_Test/bike1.jpg'
 test2File = 'bike2.jpg'
 
 # 1. Load 2 images
