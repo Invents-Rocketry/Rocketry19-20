@@ -1,13 +1,14 @@
-import numpy as np
 from cv2 import cv2
+from PIL import Image
+import numpy as np
 from matplotlib import pyplot as plt
 
 # Make Panorama image from 2 consecutive images
 # -----------------Find the similar cutout of both images and merge it at that point.----------------------------
 
 
-test1File = 'd:/rocketry/Rocketry_2019-2020/Panorama_Merge_Test/bike1.jpg'
-test2File = 'bike2.jpg'
+test1File = 'test1.jpg'
+test2File = 'test2.jpg'
 
 # 1. Load 2 images
 leftGray=cv2.imread(test1File,0)
@@ -17,7 +18,7 @@ leftColor = cv2.imread(test1File,-1)
 rightColor = cv2.imread(test2File,-1)
 
 # 2. Take template (cropped right image) at bottom left
-crop_image_dimension = 100
+crop_image_dimension = 200
 w,h = leftGray.shape[::-1]
 template = rightGray[h-crop_image_dimension:h,0:crop_image_dimension]
 
@@ -47,7 +48,7 @@ else:
     top_left = max_loc
 
 bottom_right = (top_left[0]+w,top_left[1]+h)
-cv2.rectangle(leftGray,top_left,bottom_right,0,5)
+cv2.rectangle(leftGray,top_left,bottom_right,255,5)
 plt.subplot(121),plt.imshow(res,cmap = 'gray')
 plt.title('Matching Result'), plt.xticks([]), plt.yticks([])
 plt.subplot(122),plt.imshow(leftGray,cmap = 'gray')
