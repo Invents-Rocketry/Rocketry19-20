@@ -1,0 +1,2 @@
+https://github.com/adafruit/Adafruit_BNO055
+https://github.com/adafruit/Adafruit_CircuitPython_Bundle
